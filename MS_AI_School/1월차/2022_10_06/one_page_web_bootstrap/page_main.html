@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <!-- CDN방식으로 링크를 통해서 부트스트랩 적용 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- 아이콘을 사용하기 위한 라이브러리 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>브라우저 탭</title>
+    <style>
+        /* 네비게이션 링크 색변경 */
+        .navbar-dark .navbar-nav .nav-link {
+            color: #007bff;
+        }
+
+        /* 메인섹션 추가CSS 설정 */
+        .main {
+            padding: 8rem 15px;
+            padding-bottom: 3rem;
+        }
+
+        .main h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .main strong {
+            font-weight: bold;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #007bff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: black;
+        }
+
+        .main {
+            padding: 8rem 15px;
+            padding-bottom: 3rem;
+
+        }
+
+        .main h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .main strong {
+            font-weight: bold;
+        }
+
+        /* 프로세스섹션 추가CSS작업 */
+        .process,
+        .curriculum,
+        .project,
+        .gallery,
+        .contact {
+            padding: 3rem 15px;
+        }
+
+        .process {
+            margin-bottom: 3rem;
+        }
+
+        /* 커리큘럼섹션 */
+        .curriculum h5 {
+            font-weight: bold;
+        }
+
+        .modal-title {
+            font-weight: bold;
+        }
+
+        .modal-body h6 {
+            font-weight: bold;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        /* 갤러리 */
+        .gallery img {
+            min-width: 100%;
+            max-height: 263px;
+        }
+
+        /* 풋터 */
+        .bd-footer {
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- navbar: 네비게이션으로 사용하겠다고 지정 -->
+        <!-- bg-white: 백그라운드컬러를 흰색으로 지정, 컬러 관련해서는 부트스트랩-컬러 참조-->
+        <!-- navbar-expand-lg: 네비게이션을 반응형으로 만든다. 사이즈관련해서는 부트스트랩-그리드 참조 -->
+        <nav class="navbar navbar-dark bg-white navbar-expand-lg">
+            <!-- 보통 회사로고가 들어간다. -->
+            <a class="navbar-brand" href="#">
+                <!-- 버튼 클래스, btn-lg는 버튼의 크기, btn-outline-primary는 버튼의 바깥 선 색을 결정한다. -->
+                <button type=button class="btn btn-lg btn-outline-primary">
+                    로고이미지
+                </button>
+            </a>
+            <!-- 브라우저가 작아졌을때 보여질 토글버튼 -->
+            <!-- toggler를 사용해서 버튼을 클릭하면 네비게이션 항목을 나타나게 한다. -->
+            <!-- collapse: 펼치고 숨기는 기능, data-target: 눌렀을때 나타나는 항목을 설정(일종의 id) -->
+            <!-- span태그에 icon클래스를 적용하여 버튼에 아이콘 추가 -->
+            <button class="navbar-toggler bg-primary " type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- 해당섹션으로 이동할 수 있는 네비게이션 항목을 작성한다. -->
+            <!-- collapse로 설정하고 justify-content-end로 우측정렬 -->
+            <!-- 토글버튼에서 target으로 설정했던 id를 부여 -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">카드섹션</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#curriculum">커리큘럼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#project">프로젝트</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">갤러리</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">연락하기</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+    </header>
+    <!-- 페이지의 메인영역 -->
+    <div class="container main">
+        <div class="row">
+            <!-- 그리드를 사용해서 영역을 나눌때 12칸으로 나눈다 -->
+            <!-- col-md-6: md는 브라우저크기설정, 6은 12칸중 6칸을 차지한다는 의미, 브라우저 크기가 md이상이면 6칸, 이하이면 12칸 차지 -->
+            <!-- order-2: 브라우저크기가 작아질때 우선적으로 보여질 영역을 설정, 브라우저가 작아지면 order-1이 우선하여 보여짐 -->
+            <div class="col-md-6 text-md-left pr-md-5 order-2">
+                <!-- lead: 서두, 폰트사이즈나 두께에 영향을 미친다 -->
+                <!-- mb-4: margin-bottom, 4는 부트스트랩-간격 참고 -->
+                <p class="lead mb-4">
+                    보여질 컨텐츠 삽입
+                </p>
+            </div>
+            <!-- mt: margin-top -->
+            <div class="col-md-6 text-md-center pr-md-5 order-1 mt-1">
+                <!-- text-primary는 글자 색을 바꿀 수 있다. 색상은 부트스트랩 참조 -->
+                <h1 class="text-primary">
+                    text-primary는 글자 색을 바꿀 수 있다.
+                </h1>
+                <br>
+            </div>
+        </div>
+    </div>
+    <!-- process섹션 -->
+    <!-- contanier-fluid: 브라우저 전체크기를 사용하도록 지정 -->
+    <div class="process container-fluid bg-primary text-white" id="process">
+        <!-- fluid안에 컨테이너를 설정하여 컨텐츠 레이아웃 분리 -->
+        <div class="container ">
+            <div class="row">
+                <!-- card-columns: 자동으로 컬럼의 수를 3개로 지정해줌 -->
+                <div class="card-columns">
+                    <!-- 카드태그 생성 -->
+                    <div class="card bg-primary border-primary">
+                        <!-- card-body안에 title, text를 넣어 카드를 만든다 -->
+                        <div class="card-body">
+                            <!-- fas: 아이콘을 사용하기 위한 클래스  font awesome라이브러리 사용-->
+                            <h5 class="card-title"><i class="fas fa-marker"></i> 공유지 </h5>
+                            <p class="card-text"> 스터디, 강의, 제품 만들고 싶은 주제를 선정하고 최소한의 공유지를 만듭니다</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary border-primary">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-hands-helping"></i> 참여, 협업을 통한 개선</h5>
+                            <p class="card-text">누구나 참여 가능한 플랫폼, 협업 도구를 적극적으로 사용합니다. 프로토타입을 개선합니다.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-primary border-primary ">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fab fa-slideshare"></i> 공유</h5>
+                            <p class="card-text">만들어진 제품의 소스와 과정 또한 공개합니다.<br>
+                                오픈소스, 오픈하드웨어, 오픈프로세스를 지향합니다.
+                                공유와 협업을 통해 정보의 불평등을 해결할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 커리큘럼섹션 -->
+    <div class="curriculum container" id="curriculum">
+        <!-- card-deck: 카드들을 동일한 크기로 컬럼을 생성 -->
+        <div class="card-deck">
+            <div class="card border border-primary mb-3 ">
+                <div class="card-body">
+                    <h5 class="card-title">Web</h5>
+                    <p class="card-text">웹을 만들 때 필요한 지식을 배웁니다. <br>
+                        프런트엔드, 백엔드, 인프라를 다루는 과정입니다. </p>
+                    <!-- d-flex: display를 flex로 설정 -->
+                    <p class="card-text d-flex justify-content-end">
+                        <!-- modal: 팝업을 띄우기 위한 컴포넌트 -->
+                        <!-- 팝업내용은 data-target의 값으로 지정 -->
+                        <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal"
+                            data-target="#readMore1">더 보기</button>
+                    </p>
+                    <!-- Modal -->
+                    <!-- fade: 나타날 때 효과, tabindex: 상호작용하는 요소에 포커스유무 -1은 포커스가 잡히지 않는다 -->
+                    <!-- role="dialog": 모달다이얼로그의 컨테이너, aria-hidden="true": 모달 컨테이너를 제외한 배경콘텐츠를 스크린리더에서 읽지않게 설정 -->
+                    <div class="modal fade" id="readMore1" tabindex="-1" role="dialog" aria-labelledby="readMore1"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">웹</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h6>인프라</h6>
+                                    <p>서버를 구성하는 방법에 대한 공부를 합니다.</p>
+                                    <p>라즈베리 파이를 통한 실제 서버 구축</p>
+                                    <p>아마존, 애저 등 클라우드 서비스를 이용한 구축</p>
+                                    <br>
+                                    <hr>
+                                    <h6>프런트엔드</h6>
+                                    <p>html문서를 만드는 데 필요한 것을 공부합니다.</p>
+                                    <p>html, css, javascript, jQeury</p>
+                                    <p>Framwork - bootstrap 등</p>
+                                    <br>
+                                    <hr>
+                                    <h6>백엔드</h6>
+                                    <p>웹서버를 구성하는 어플리케이션에 대해서 공부합니다.</p>
+                                    <p>Web Framework, Database, MVC model</p>
+                                    <p>NODE.jS EXPRESS DJANGO MySQL MONGODB 등</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border border-primary mb-3 ">
+                <div class="card-body">
+                    <h5 class="card-title">BlockChain</h5>
+                    <p class="card-text">블록체인 개념, 아키텍쳐 설계, Dapp만들기를 배우는 과정입니다.</p>
+                    <p class="card-text d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal"
+                            data-target="#readMore2">더 보기</button>
+                    </p>
+                    <!-- Modal -->
+                    <div class="modal fade" id="readMore2" tabindex="-1" role="dialog" aria-labelledby="readMore2"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="readMore2">블록체인</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h6>블록체인 기초</h6>
+                                    <p>블록체인을 구성하는 기본 개념에 대해 공부합니다.</p>
+                                    <p>기초 기술에 대해 python등을 통해 구현</p>
+                                    <br>
+                                    <hr>
+                                    <h6>아키텍쳐 설계</h6>
+                                    <p>블록체인 엔진에 대한 평가기준 작성과 분석을 하는 과정</p>
+                                    <p>비트코인, 이더리움, 텐더민트 등 다양한 블록체인 엔진을 분석합니다.</p>
+                                    <p>분석을 토대로 설계를 합니다.</p>
+                                    <br>
+                                    <hr>
+                                    <h6>Dapp</h6>
+                                    <p>블록체인 위에 실행되는 어플리케이션을 만드는 과정입니다.</p>
+                                    <p>이더리움, 이오스 등 다양한 엔진 위에서 실행되는 Dapp을 만들어봅니다.</p>
+                                    <p>Dapp과 관련된 보안요소도 살펴봅니다.</p>
+                                    <a href="https://github.com/pangol/dapp101">Dapp101보러 가기</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border border-primary mb-3 ">
+                <div class="card-body">
+                    <h5 class="card-title">인공지능과 데이터 분석</h5>
+                    <p class="card-text">데이터 분석과 인공지능에 필요한 지식을 배우는 과정입니다.</p>
+                    <p class="card-text d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal"
+                            data-target="#readMore3">더 보기</button>
+                    </p>
+                    <!-- Modal -->
+                    <div class="modal fade" id="readMore3" tabindex="-1" role="dialog" aria-labelledby="readMore3"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="readMore3">인공지능과 데이터 분석</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h6>파이썬 기초</h6>
+                                    <p>데이터 분석과 인공지능에 많이 사용되는 파이썬 기초를 공부합니다.</p>
+                                    <p>가장 기본적인 데이터분석과 인공지능 기술에 대해 배웁니다.</p>
+                                    <br>
+                                    <hr>
+                                    <h6>인공지능</h6>
+                                    <p>신경망을 다루는 방법에 대해 학습합니다.</p>
+                                    <p>이미지 분석, 자연어 처리 등에 필요한 부가적인 정보도 학습니다.</p>
+                                    <br>
+                                    <hr>
+                                    <h6>데이터 분석</h6>
+                                    <p>데이터 분석의 기초인 확률</p>
+                                    <p>SQL 다루기</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 프로젝트섹션 -->
+    <div class="container project" id="project">
+        <div class="row">
+            <!-- 브라우저 사이즈가 md일때는 6칸, sm일때는 2칸을 차지 -->
+            <div class="col-md-6 col-sm-12 mb-2">
+                <!-- flex-md-low: 행으로 요소배치, flex관련해서는 부트스트랩-flex 참조-->
+                <div class="card flex-md-row border-white">
+                    <div class="card-body">
+                        <h5 class="card-title">검정고시 문제풀이</h5>
+                        <p class="card-text">검정고시 기출문제를 풀어볼 수 있는 어플리케이션입니다.</p>
+                        <a href="https://github.com/pangol/highschoolSolution" target="_blank"
+                            class="btn btn-primary"><i class="fab fa-github"></i></a>
+                        <a href="https://play.google.com/store/apps/details?id=appinventor.ai_pangol75.science_past"
+                            class="btn btn-primary" target="_blank"><i class="fab fa-google-play"></i></a>
+                    </div>
+                    <!-- d-none: display를 none으로 설정함, d-lg-block: 브라우저크기가 lg이상이면 display를 block으로 변경하여 노출 -->
+                    <img class="d-none d-lg-block" src="images/highschool.png" style="width: 200px; height: 250px;">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card flex-md-row border-white">
+                    <div class="card-body">
+                        <h5 class="card-title">중고핸드폰을 이용한 서버 구축</h5>
+                        <p class="card-text">중고 핸드폰을 활용해서 클라우드 서비스를 구축하는 프로젝트입니다.<br>
+                            현재 진행중에 있습니다.</p>
+                    </div>
+                    <img class="d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]"
+                        style="width: 200px; height: 250px;"
+                        src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1666732b235%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1666732b235%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                        data-holder-rendered="true">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card flex-md-row border-white">
+                    <div class="card-body">
+                        <h5 class="card-title">넷 중립성을 위한 네트워크 만들기</h5>
+                        <p class="card-text">넷 중립성을 위해서 대기업에서 운영하는 통신망이 아니라 직접 네트워크를 만드는 프로젝트입니다.메쉬 네트워크를 기반으로 개발 중에 있으며
+                            블록체인을 활용합니다.
+                            <br>현재 연구중에 있습니다
+                        </p>
+                    </div>
+                    <img class="d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]"
+                        style="width: 200px; height: 250px;"
+                        src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1666732b235%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1666732b235%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                        data-holder-rendered="true">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-2">
+                <div class="card flex-md-row border-white">
+                    <div class="card-body">
+                        <h5 class="card-title">수화 통역 인공지능</h5>
+                        <p class="card-text">수화를 통역해서 한글로 출력해주는 인공지능 엔진을 개발합니다.python + opencv를 활용하며 스마트 글래스에 연동시키는
+                            프로젝트입니다. 현재 연구중에 있습니다.</p>
+                    </div>
+                    <img class="d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]"
+                        style="width: 200px; height: 250px;"
+                        src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1666732b235%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1666732b235%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                        data-holder-rendered="true">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 갤러리섹션 -->
+    <div class="gallery container" id="gallery">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 mb-4">
+                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/random">
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/random">
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/random">
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/random">
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/random">
+            </div>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/random">
+            </div>
+        </div>
+    </div>
+    <!-- 연락하기섹션 -->
+    <!-- 브라우저 전체를 사용하기에 컨테이너는 없음 -->
+    <div class="contact" id="contact">
+        <!-- justify로 중앙정렬 -->
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-sm-12">
+                <form>
+                    <!-- form-group으로 form 그룹화 -->
+                    <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">이메일</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="contactName" class="col-sm-2 col-form-label">이름</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="contactName" placeholder="Enter Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="contactTextarea" rows="5"
+                            placeholder="문의 사항을 적어주세요"></textarea>
+                        <small>이 폼은 예시를 위해 만들어서 동작하지 않습니다.</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right">전송하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 푸터섹션 -->
+    <footer class="bd-footer text-muted">
+        <div class="container-fluid p-3 p-md-5">
+            <p>Made by Colletive College
+                <a href="https://www.facebook.com/99colleage/" target="_blank">
+                    <i class="fab fa-facebook-square fa-lg"></i>
+                </a>
+            </p>
+            <address>
+                Written by <a href="mailto:pangol75@gmail..com">KENTA</a>
+                <a href="https://github.com/pangol" target="_blank">
+                    <i class="fab fa-github fa-lg"></i>
+                </a>
+            </address>
+        </div>
+    </footer>
+    <!-- popper, js CDN 연결 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>css float exam1</title>
+	<style type="text/css">
+	*{
+		padding:0; margin:0;
+	}
+
+	body{
+		width: 960px;
+		font-size: 14px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		font-size: 41px;
+	}
+
+	header {
+		width: 960px;
+		background-color: blue;
+	}
+	section {
+		overflow: hidden;
+		background-color: green;
+	}
+	nav {
+		/* 백그라운드 컬러를 설정하지 않았기 때문에 부모인 section의 컬러로 적용된다.  
+			section에  overflow: hidden; 때문에 리스트에도 백그라운드 색상이 적용*/
+		float: left;
+		width: 200px;
+	}
+	ul {
+		/* 리스트의 마크를 변경하기위한 속성. none은 마크를 지우는 옵션이다. */
+		list-style: none;
+	}
+	article {
+		background-color: pink;
+		float: left;
+		width: 760px;
+	}
+	div {
+		/* 컨텐츠간 간격을 조정할 때는 paddig 보다 margin을 쓰는것이 더 좋다. */
+		margin: 15px;
+		/* padding: 15px; */
+	}
+	footer {
+		background-color: blue;
+		margin-top: 5px;
+		/* float이 적용되는것을 막기위한 clear: both; */
+		clear: both;
+	}
+	
+
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Prime Wordpress</h1>
+	</header>
+        <section>
+            <nav>
+				<div>
+                	<h4>네비게이션</h4>
+                	<ul>
+                    	<li>Prime wordpress 소개</li>
+                    	<li>Prime wordpress 멤버</li>
+                    	<li>Prime wordpress 커리큘럼</li>
+                	</ul>
+				</div>
+            </nav>
+            <article>
+				<div>
+                	<h2>Prime Wordpress 소개</h2>
+                	<p>Prime wordpress는 오픈소스인 wordpress의 취지를 살려 강의를 진행합니다</p>
+                	<p>Prime wordpress는 오픈소스인 wordpress의 취지를 살려 강의를 진행합니다</p>
+                	<p>Prime wordpress는 오픈소스인 wordpress의 취지를 살려 강의를 진행합니다</p>
+                	<p>Prime wordpress는 오픈소스인 wordpress의 취지를 살려 강의를 진행합니다</p>
+                	<p>Prime wordpress는 오픈소스인 wordpress의 취지를 살려 강의를 진행합니다</p>			
+            	</div>
+			</article>		
+        </section>
+	<footer>
+		<p>Copyright@primewordpress</p>
+	</footer>
+</body>
+</html>

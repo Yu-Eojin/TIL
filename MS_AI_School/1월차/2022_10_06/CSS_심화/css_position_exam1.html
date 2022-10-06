@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>css position exam1</title>
+	<style type="text/css">
+	*{
+		padding:0;margin:0;
+	}
+
+	body{
+		width:500px;
+		margin:0 auto;
+	
+	}
+	div {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		/* 기준이 되는 relative */
+		position: relative;
+	}
+	p{
+		background-color: black;
+		color: white;
+		/* 바로 상위 relative를 기준점으로 위치를 조정하는 absolute */
+		position: absolute;
+		top: 100px;
+		left: 100px;
+	
+	}
+	</style>
+</head>
+<body>
+	<h1>position 문제1</h1>
+	<div class="container">
+		<p>이 곳을 움직이세요</p>
+	</div>
+</body>
+</html>

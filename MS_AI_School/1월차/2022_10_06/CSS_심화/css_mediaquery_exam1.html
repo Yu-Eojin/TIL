@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>media query ans1</title>
+	<style type="text/css">
+	*{
+		padding:0; margin:0;
+	}
+
+	header{
+		background-color: red;
+	}
+
+	section {
+		background-color: blue;
+	}
+
+	footer {
+		background-color: black;
+		color: white;
+		clear: both;
+	}
+
+	article {
+		border: 2px dashed black;
+		/* 박스사이즈를 보더까지 합한 사이즈로 설정. %로 크기를 설정할때 오류를 없애기 위함 */
+		box-sizing: border-box;		
+	}
+	/* screen and : 웹에서만
+		print : 출력할때 */
+	@media( min-width: 768px){
+		article {
+			/* 컨텐츠 텍스트 정렬. center, left, right */
+			text-align: center;
+			width: 50%;
+			float: left;
+
+		}
+		section {
+			/* overflow: hidden 기능을 이용하여 넘치는걸 다음칸으로 넘김 */
+			overflow: hidden;
+		}
+	}
+	@media( min-width: 992px){
+		article {
+			/* 위에서 다른 설정은 모두 했기때문에 변경되는 부분만 작성 */
+			width: 25%;
+		}
+	}
+	@media( min-width: 1200px){
+		article {
+			background-color: pink;
+			width: 50%;
+
+		}
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>media query</h1>
+	</header>
+	<section>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>
+		<article>
+			<h2>article</h2>
+			<p class="korea">아티클의 내용이 들어가는 자리입니다.</p>
+		</article>			
+	</section>
+	<footer>
+		<p>copyright@primewordpress</p>
+	</footer>
+
+</body>
+</html>
