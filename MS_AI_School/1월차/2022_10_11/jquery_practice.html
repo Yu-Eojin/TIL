@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Static</li>
+        <li>Static</li>
+        <li>Static</li>
+    </ul>
+    
+    <!-- <div>
+        <h1>TITLE</h1>
+        <p>213122</p>
+        <p>213122</p>
+        <p>213122</p>
+    </div> -->
+    
+    <!-- <p class="first">Click Event</p>
+    <p class="off">cancled</p> -->
+
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+
+    <!-- <p>Hello World</p> -->
+
+    <!-- <div class="parent">parent
+        <p class="super1">super1</p>
+        <p class="super2" style="display: hidden;">super2</p>
+    </div> -->
+
+    <!-- <ul>
+        <li>0</li>
+        <li class="second">1</li>
+        <li>2</li>
+    </ul> -->
+
+    <!-- <div class="parent"> parent 
+    <p>1</p>
+    <p class="super">super</p>
+    <p>2</p>
+    <p class="super">super</p>
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $('ul').on('mouseenter', 'li', function(event){
+            $(this).css('background-color','red')
+        })
+        $('ul').click(function(event){
+            $(this).append('<li>Dynamic</li>')
+        })
+        
+        // $('ul>li').mouseenter(function(event){
+        //     $(this).css('background-color','red')
+        // })
+        // $('ul').click(function(event){
+        //     $(this).append('<li>Dynamic</li>')
+        // })
+
+        // $('div').on('click', 'h1',{msg:'hello'},function(event){
+        //     alert(event.data.msg)
+        // })
+        // $('p').on('click', {msg:'whoo'},function(event){
+        //     alert(event.data.msg)
+        // })
+        
+        // $('.first').on('click', function(event){
+        //     alert('clicked')
+        // })
+        // $('.off').on('click', function(event){
+        //     $('.first').off('click')
+        // })
+        
+        // $('p').click(function(event){
+        //     alert(event.type)
+        // })
+        
+        // $('ul').prepend('<li>0</li>');
+        // $('<li>-1</li>').prependTo($('ul'))
+
+        // $('p').slideDown(1000,function(){
+        //     alert('Animation complete')
+        // })
+        
+        // $('.super2').show()        
+
+        // let li = $('li')
+        // li.each(function(index, item){
+        //     $(item).css('color','red')
+        // })
+
+        // $('p').css('background-color','red')
+        // .filter(function(index){
+        //     return index % 2 == 0
+        // })
+        // .css('border','10px solid black')
+
+        // $(document).ready(function(){
+        //     $('p').css('background-color','red')
+        //     .filter('.super')
+        //     .css('border','10px solid black')
+
+            // let newElements = $('<div class="parent">parent</div>');
+            // newElements.append('<p class="child">child</p>');
+
+            // let divElements = $('div');
+            // // divElements.html('Hello World');
+            // // divElements.empty();
+            // // divElements.remove();
+            // // divElements.append('<p>Hello Wolrd</p>');
+            // divElements.append(newElements);
+        // })
+    </script>
+    </body>
+</html>

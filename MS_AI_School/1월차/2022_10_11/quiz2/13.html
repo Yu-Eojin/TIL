@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>0</h1>
+    <p id="first">10</p>
+    <p id="second">20</p>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="multiple">*</button>
+    <button id="divide">/</button>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        let first = parseInt($('#first').text()), second = parseInt($('#second').text())
+        function plus (first,second){
+            return first+second
+        }
+        function minus (first,second){
+            if (first>second){
+                return first-second
+            }else {
+                return second-first
+            }
+        }
+        function multiple (first,second){
+            return first*second
+        }
+        function divide (first,second){
+            if (first>second){
+                return first/second
+            }else {
+                return second/first
+            }
+        }
+
+        $('#plus').click(function(event){
+            $('h1').html(plus(first,second))
+        })
+        $('#minus').click(function(event){
+            $('h1').html(minus(first,second))
+        })
+        $('#multiple').click(function(event){
+            $('h1').html(multiple(first,second))
+        })
+        $('#divide').click(function(event){
+            $('h1').html(divide(first,second))
+        })
+    </script>
+</body>
+</html>
